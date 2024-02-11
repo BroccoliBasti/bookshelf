@@ -1,11 +1,11 @@
 [package]
-name = "app"
+name = "bookshelf"
 version = "0.1.0"
-description = "A Tauri App"
+description = "A desktop app for tracking your books and reading habits."
 authors = ["you"]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "bookshelf"
 edition = "2021"
 rust-version = "1.60"
 
