@@ -26,7 +26,7 @@
 }
 
 *::selection {
-    @apply bg-rose-800 text-amber-200
+    @apply bg-indigo-800 text-amber-50
 }
 
 *::-webkit-scrollbar {
