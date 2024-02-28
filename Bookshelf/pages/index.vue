@@ -1,62 +1,54 @@
 <template>
-    <h1 class="font-bold font-morris text-5xl text-indigo-950 text-center my-6">My bookshelf</h1>
+    <div class="bg-stone-950">
 
-    <!-- <form @submit.prevent="getBookByTitle" class="flex justify-center gap-4">
-        <input type="search" id="searchInput" placeholder="Look for book" class="px-2 ring-2 ring-indigo-200 outline-none">
-        <input type="button" value="Submit">
-    </form> -->
+        <!-- <h1 class="font-bold font-morris text-5xl text-amber-300 text-center my-6">My bookshelf</h1> -->
 
-    <form @submit.prevent="addBook" method="post" class="flex flex-col items-center justify-center gap-4">
-        <div class="flex gap-2">
-            <label for="inputTitle" class="flex">Title</label>
-            <input type="text" ref="inputTitle" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputAuthor" class="flex">Author</label>
-            <input type="text" ref="inputAuthor" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputSeries" class="flex">Series</label>
-            <input type="text" ref="inputSeries" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputGenre" class="flex">Genre</label>
-            <input type="text" ref="inputGenre" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputPageLength" class="flex">Page length</label>
-            <input type="text" ref="inputPageLength" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputWordCount" class="flex">Word count</label>
-            <input type="text" ref="inputWordCount" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputReleaseYear" class="flex">Release year</label>
-            <input type="number" ref="inputReleaseYear"
-                class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputPrice" class="flex">Price</label>
-            <input type="number" ref="inputPrice" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
-        <div class="flex gap-2">
-            <label for="inputISBN" class="flex">ISBN</label>
-            <input type="text" ref="inputISBN" class="ring-2 ring-indigo-200 max-w-md outline-none px-2 rounded-sm">
-        </div>
+        <!-- <form @submit="getBookByTitle" class="flex justify-center gap-4">
+            <input type="search" id="searchInput" placeholder="Look for book" class="px-2 ring-2 ring-indigo-200 outline-none">
+            <input type="button" value="Submit">
+        </form> -->
 
-        <input type="submit" class="ring-1 ring-indigo-900 py-1 px-2 rounded-md" value="Send">
-    </form>
+        <form @submit="addBook" method="post"
+            class="grid w-full max-w-sm items-center gap-2 mx-auto mt-16 bg-gradient-to-b from-stone-500 to-stone-600 ring-4 ring-stone-400 p-6 rounded-xl">
+            <h2 class="text-2xl text-stone-200 font-morris mb-4 drop-shadow-md">New Book</h2>
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6 m-6">
-        <div v-for="book in books" :key="book.id" :book="book"
-            class=" p-4 aspect-[19/24] font-bold font-morris text-xl ring-2 ring-indigo-100 rounded-sm hover:bg-indigo-200/50 cursor-pointer text-center text-indigo-950">
-            {{ book.title }}
+            <Label for="inputTitle">Title</Label>
+            <Input id="inputTitle" type="text" placeholder="Title" class="text-amber-50" />
+            <Label for="inputAuthor">Author</Label>
+            <Input id="inputAuthor" type="text" placeholder="Author" class="text-amber-50" />
+            <Label for="inputSeries">Series</Label>
+            <Input id="inputSeries" type="text" placeholder="Series" class="text-amber-50" />
+            <Label for="inputGenre">Genre</Label>
+            <Input id="inputGenre" type="text" placeholder="Genre" class="text-amber-50" />
+            <Label for="inputPageLength">Page length</Label>
+            <Input id="inputPageLength" type="number" placeholder="PageLength" class="text-amber-50" />
+            <Label for="inputWordCount">WordCount</Label>
+            <Input id="inputWordCount" type="number" placeholder="WordCount" class="text-amber-50" />
+            <Label for="inputReleaseYear">ReleaseYear</Label>
+            <Input id="inputReleaseYear" type="number" placeholder="ReleaseYear" class="text-amber-50" />
+            <Label for="inputPrice">Price</Label>
+            <Input id="inputPrice" type="number" placeholder="Price" class="text-amber-50" />
+            <Label for="inputISBN">ISBN</Label>
+            <Input id="inputISBN" type="text" placeholder="ISBN" class="text-amber-50" />
+            <Button class="w-24 mx-auto mt-6 rounded-lg">Save</Button>
+        </form>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6 m-6">
+            <div v-for="book in books" :key="book.id" :book="book"
+                class=" p-4 aspect-[19/24] font-bold font-morris text-xl ring-2 ring-indigo-100 rounded-sm hover:bg-indigo-200/50 cursor-pointer text-center text-indigo-950">
+                {{ book.title }}
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+
+const isOpen = ref(false);
+
 const props = defineProps({
     book: Object
 });
