@@ -13,13 +13,22 @@
   "dependencies": {
     "@tauri-apps/api": "^1.5.3",
     "@tauri-apps/cli": "^1.5.9",
+    "@vueuse/core": "^10.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-vue-next": "^0.343.0",
     "nuxt": "^3.10.1",
+    "radix-vue": "^1.4.9",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@nuxtjs/supabase": "^1.1.6",
-    "@nuxtjs/tailwindcss": "^6.11.3"
+    "@nuxtjs/tailwindcss": "^6.11.3",
+    "shadcn-nuxt": "^0.9.0",
+    "typescript": "^5.3.3"
   },
   "plugins": [
     "prettier-plugin-tailwindcss"

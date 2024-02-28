@@ -1,5 +1,5 @@
 <template>
-    <div data-tauri-drag-region class="titlebar flex justify-end rounded-t-md bg-indigo-500/10">
+    <div data-tauri-drag-region class="titlebar flex justify-end rounded-t-md bg-stone-500">
         <div class="titlebar-button p-2 hover:bg-indigo-200 active:ring-2 active:ring-amber-50" id="titlebar-minimize"
             @click="appWindow.minimize()">
             <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
@@ -23,6 +23,8 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    @apply font-rosarivo
 }
 
 *::selection {
@@ -33,9 +35,9 @@
     @apply bg-indigo-100 text-indigo-700
 }
 
-html, body {
+/* html, body {
     @apply bg-amber-50 text-indigo-950 rounded-t-md
-}
+} */
 </style>
 
 <script setup>
